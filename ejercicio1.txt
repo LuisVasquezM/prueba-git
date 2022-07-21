@@ -35,3 +35,5 @@ eth_valor.click()
 
 btn_simular = driver.find_element_by_link_text("Simular")
 btn_simular.click()
+
+EJERCICO#1
