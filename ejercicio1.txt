@@ -1,0 +1,37 @@
+from selenium import webdriver
+import unittest
+
+driver = webdriver.Chrome(executable_path="drivers/chromedriver.exe")
+# Set URL
+driver.get("https://www.ripio.com/ar/")
+
+# Maximize browser
+driver.maximize_window()
+
+#Producto/Ripio-Earn
+Producto = driver.find_element_by_link_text("Productos")
+Producto.click()
+
+
+Ripio_earn = driver.find_element_by_link_text("Ripio Earn")
+Ripio_earn.click()
+
+
+#Compra de ETH
+#Seleccion de monto
+
+eth_monto = driver.find_element_by_class_name("--amount")
+eth_monto.clear()
+eth_monto.send_keys(152)
+
+
+#Seleccion de Valor ETH
+eth_valor = driver.find_element_by_class_name("currency")
+eth_valor = driver.find_element_by_xpath("//option[contains(text(),'ETH')]")
+eth_valor.click()
+
+
+#Simular Operacion
+
+btn_simular = driver.find_element_by_link_text("Simular")
+btn_simular.click()

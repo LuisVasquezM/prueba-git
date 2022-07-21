@@ -1,0 +1,23 @@
+#EJERCICIO#2
+
+#Validar Pagina Web
+from selenium import webdriver
+import unittest
+
+class ExplicitWaits(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome(executable_path="drivers/chromedriver.exe")
+        self.driver.get("https://www.ripio.com/ar/")
+        self.driver.maximize_window()
+
+    def test_validate(self):
+
+        title_ripio = self.driver.title
+        self.assertEqual(title_ripio, "Bienvenido a la nueva economía digital | Ripio")
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == '__main__':
+    unittest.main()
